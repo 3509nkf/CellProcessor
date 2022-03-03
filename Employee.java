@@ -29,6 +29,26 @@ public class Employee {
 		this.note = note;
 	}
 	
+	public String getName() {
+		return name;
+	}
+	
+	public Integer getAge() {
+		return age;
+	}
+	
+	public Date getBirth() {
+		return birth;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+	
+	public String getNote() {
+		return note;
+	}
+	
 	
 	
 	

@@ -28,15 +28,7 @@ public class CellProcessor1 {
 				new Optional()
 		};
 		
-		Path path = Paths.get("employee.csv");
-		String[] header = {"name","age","birth","email","note"} ;
 		List<Employee> employeeList = new ArrayList<>();
-		try(ICsvBeanWriter beanWriter = new CsvBeanWriter(Files.newBufferedWriter(path),CsvPreference.STANDARD_PREFERENCE)) {
-			beanWriter.writeHeader(header);
-			for(Employee employee : employeeList) {
-				beanWriter.write(employee, header, processors);
-			}
-		}
 		
 		Employee employee1 = new Employee();
 		employee1.setName("ファビアン");
@@ -47,6 +39,16 @@ public class CellProcessor1 {
 		employee1.setEmail("nagokaitofabian@gmail.com");
 		employee1.setNote("所有免許:第二種免許,情報パスポート");
 		employeeList.add(employee1);
+		
+		Path path = Paths.get("employee.csv");
+		String[] header = {"name","age","birth","email","note"} ;
+		try(ICsvBeanWriter beanWriter = new CsvBeanWriter(Files.newBufferedWriter(path),CsvPreference.STANDARD_PREFERENCE)) {
+			beanWriter.writeHeader(header);
+			for(Employee employee : employeeList) {
+				 beanWriter.write(employee, header, processors);
+			}
+		}
+		
 
 	}
 
